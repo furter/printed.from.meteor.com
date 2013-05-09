@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family:'PT-Serif';
+    src: url("font/PT_Serif-Caption-Web-Regular.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Cabin';
+    src: url("font/Cabin-SemiBold.ttf");
+    font-style: normal;
+}
+
+
+body {
+    font-family:'Cabin';
+    font-size: 19px;
+    padding: 12px;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    line-height: 22px;
+}
+
+p {
+    
+}
+
+a, a:visited, a:hover, a:active, a:link {
+    color:#000000; 
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-family:'Cabin';
+    font-weight: normal;
+    letter-spacing:3px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+h2 {
+    font-family:'Cabin';
+    font-weight: normal;
+    margin-left: 130px;
+    letter-spacing:3px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.underlined {
+    display: inline-block;
+    border-bottom: 2px solid cyan; 
+    font-size: 16px; 
+    line-height: 14px; 
+}
+
+.background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -111;
+}
+
+/* COLUMNS LAYOUT */
+
+
+@col: 500px;
+@ext-margin: 10px;
+@gutter: 25px;
+
+
+.white-box {
+    background-color: white;
+    width: 6*@col + 2*@ext-margin;
+    height: 850px;
+    padding: @ext-margin;
+}
+
+.couple-box {
+    page-break-after: always;
+    border: 1px solid black;
+    width: 999px;
+    height: 1499px;
+}
+
+.box-in-box {
+    width: 495px;
+    height: 745px;
+    float: left;
+    border: 1px solid black;
+    padding-right: 20px;
+    padding-bottom: 30px
+}
+
+/*only on the screen*/
+
+@media screen {
+    .print-only {
+     display:none;
+    }
+    .couple-box {
+    float: left;
+    }
+}
+
+/*only in print*/
+
+@media print {
+    .screen-only {
+        display:none;
+    }
+    .couple-box {
+        float: none;
+    }
+    /**** Clearfix ****/
+    .couple-box:before, .couple-box:after { 
+        content: ""; 
+        display: table; 
+    }
+    .couple-box:after {
+        clear: both;
+    }
+    .couple-box {
+        zoom: 1;
+    }
+}
+
+/*page break*/
+
+.break {
+    page-break-before: always;
+}
+
